@@ -2,17 +2,17 @@ import { useState, useRef } from "react";
 
 export default function FormSubmit() {
   const [submitted, setSubmitted] = useState(false);
+  const hobbyRef = useRef([]);
+
   const [data, setData] = useState({
     username: "",
     firstname: "",
     lastname: "",
     gender: "",
-    role: "",
+    role: "General Staff",
     others: "",
     hobbies: []
   });
-
-  const hobbyRef = useRef([]);
 
   const hobbies = ["Music", "Movies", "Plastic Models"];
 
@@ -32,7 +32,7 @@ export default function FormSubmit() {
   };
 
   return (
-    <>
+    <div>
       {!submitted ? (
         <form onSubmit={handleSubmit}>
           <h2>Register</h2>
@@ -47,18 +47,8 @@ export default function FormSubmit() {
           <input name="lastname" onChange={handleChange} /><br /><br />
 
           <label>Gender</label><br />
-          <input
-            type="radio"
-            name="gender"
-            value="Male"
-            onChange={handleChange}
-          /> Male
-          <input
-            type="radio"
-            name="gender"
-            value="Female"
-            onChange={handleChange}
-          /> Female
+          <input type="radio" name="gender" value="Male" onChange={handleChange} /> Male
+          <input type="radio" name="gender" value="Female" onChange={handleChange} /> Female
           <br /><br />
 
           <label>Hobbies</label><br />
@@ -75,9 +65,8 @@ export default function FormSubmit() {
 
           <label>Role</label><br />
           <select name="role" onChange={handleChange}>
-            <option value="">Select Role</option>
-            <option value="General Staff">General Staff</option>
-            <option value="Manager">Manager</option>
+            <option>General Staff</option>
+            <option>Manager</option>
           </select>
           <br /><br />
 
@@ -101,6 +90,6 @@ export default function FormSubmit() {
           <button onClick={() => setSubmitted(false)}>Back</button>
         </div>
       )}
-    </>
+    </div>
   );
 }

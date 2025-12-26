@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import FormSubmit from "./FormSubmit";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<FormSubmit />} />
         <Route path="/form-submit" element={<FormSubmit />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
