@@ -5,6 +5,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<FormSubmit />} />
         <Route path="/form-submit" element={<FormSubmit />} />
       </Routes>
     </BrowserRouter>
